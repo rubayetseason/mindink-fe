@@ -20,7 +20,7 @@ const SidebarThemedLogo = () => {
       ? mindInkAssets?.logos?.logo_white
       : mindInkAssets?.logos?.logo_black;
 
-  return <Image src={logoSrc} alt="logo" className="w-20" />;
+  return <Image src={logoSrc} alt="logo" className="w-14 md:w-20" />;
 };
 
 export default SidebarThemedLogo;

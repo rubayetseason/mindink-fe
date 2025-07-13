@@ -1,65 +1,22 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import {
-  Bookmark,
-  House,
-  LayoutDashboard,
-  Moon,
-  Rss,
-  Search,
-  Sparkles,
-  Sun,
-  User,
-} from "lucide-react";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { LogOut } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
+import { menuItems } from "@/constants/menuList";
+import { LogOut, Moon, Sparkles, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import SidebarThemedLogo from "./SidebarThemedLogo";
 
 const name = "John Doe";
 const userName = "@johndoe";
-
-const menuItems = [
-  {
-    name: "Home",
-    href: "/feed",
-    icon: House,
-  },
-  {
-    name: "Explore",
-    href: "/explore",
-    icon: Search,
-  },
-  {
-    name: "My Posts",
-    href: "/my-posts",
-    icon: Rss,
-  },
-  {
-    name: "Bookmarks",
-    href: "/bookmarks",
-    icon: Bookmark,
-  },
-  {
-    name: "Profile",
-    href: "/profile",
-    icon: User,
-  },
-  {
-    name: "Kanban Board",
-    href: "/kanban",
-    icon: LayoutDashboard,
-  },
-];
 
 const Sidebar = () => {
   const { setTheme, resolvedTheme } = useTheme();

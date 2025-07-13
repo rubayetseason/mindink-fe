@@ -3,6 +3,7 @@ import { Raleway } from "next/font/google";
 import "../globals.css";
 import ProfileChildrenLayout from "@/components/shared/layouts/ProfileChildrenLayout";
 import { ThemeProvider } from "@/lib/theme-provider";
+import Navbar from "@/components/shared/layouts/Navbar";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -35,7 +36,10 @@ export default function ProfileLayout({
         disableTransitionOnChange
       >
         <body className={`${raleway.variable} font-raleway antialiased`}>
-          <ProfileChildrenLayout>{children}</ProfileChildrenLayout>
+          <ProfileChildrenLayout>
+            <Navbar></Navbar>
+            {children}
+          </ProfileChildrenLayout>
         </body>
       </ThemeProvider>
     </html>
