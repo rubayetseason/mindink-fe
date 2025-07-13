@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function ProfileLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
