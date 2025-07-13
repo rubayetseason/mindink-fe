@@ -50,7 +50,7 @@ export default function Home() {
   }
 
   return (
-    <div className="max-w-[var(--custom-width)] mx-auto w-full h-screen font-raleway flex flex-col md:flex-row justify-center items-center gap-10 px-4">
+    <div className="px-4 max-w-[var(--custom-width)] mx-auto w-full h-screen font-raleway flex flex-col md:flex-row justify-center items-center gap-10">
       {/* left logo */}
       <div className="w-full md:w-1/2">
         <Image

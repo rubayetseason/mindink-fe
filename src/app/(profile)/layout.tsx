@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "../globals.css";
+import ProfileChildrenLayout from "@/components/shared/layouts/ProfileChildrenLayout";
+import { ThemeProvider } from "@/lib/theme-provider";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -25,9 +27,16 @@ export default function ProfileLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} font-raleway antialiased`}>
-        {children}
-      </body>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <body className={`${raleway.variable} font-raleway antialiased`}>
+          <ProfileChildrenLayout>{children}</ProfileChildrenLayout>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
