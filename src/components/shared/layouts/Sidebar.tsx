@@ -65,7 +65,7 @@ const Sidebar = () => {
       {menuItems.map((item) => (
         <div
           key={item.name}
-          className="px-5 py-3 mb-3 text-xl flex items-center gap-4 border-[1px] border-transparent hover:bg-gray-100 hover:border-blue-700/50 cursor-pointer transition-all duration-300 rounded-[30px]"
+          className="px-5 py-3 mb-3 text-xl flex items-center gap-4 border-[1px] border-transparent hover:bg-gray-100 dark:hover:bg-gray-300/500 hover:border-blue-700/50 cursor-pointer transition-all duration-300 rounded-[30px]"
         >
           {item?.icon && <item.icon className="size-7"></item.icon>}
           <p>{item.name}</p>
@@ -74,13 +74,13 @@ const Sidebar = () => {
 
       <div
         onClick={() => setTheme(isDark ? "light" : "dark")}
-        className="px-5 py-3 mb-3 text-xl flex items-center gap-4 border-[1px] border-transparent hover:bg-gray-100 hover:border-blue-700/50 cursor-pointer transition-all duration-300 rounded-[30px]"
+        className="px-5 py-3 mb-3 text-xl flex items-center gap-4 border-[1px] border-transparent hover:bg-gray-100 dark:hover:bg-gray-300/500 hover:border-blue-700/50 cursor-pointer transition-all duration-300 rounded-[30px]"
         aria-label="Toggle theme"
       >
         {isDark ? (
-          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all" />
+          <Sun className="size-7 rotate-0 scale-100 transition-all" />
         ) : (
-          <Moon className="h-5 w-5 rotate-0 scale-100 transition-all" />
+          <Moon className="size-7 rotate-0 scale-100 transition-all" />
         )}
         <p>{isDark ? "Light Mode" : "Dark Mode"}</p>
       </div>
