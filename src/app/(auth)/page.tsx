@@ -56,7 +56,7 @@ export default function Home() {
         <Image
           src={mindInkAssets?.logos?.logo_black}
           alt="logo"
-          className="w-44 md:w-72 mx-auto"
+          className="w-44 md:w-96 mx-auto"
         />
       </div>
 
