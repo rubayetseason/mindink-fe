@@ -30,13 +30,13 @@ export default function LoginForm({ form, onSubmit }: Props) {
             <FormItem>
               <FormControl>
                 <div className="w-full md:w-1/2 mx-auto">
-                  <div className="mt-10 px-2 flex items-center border border-gray-500/50 focus-within:border-black transition-colors duration-300">
+                  <div className="mt-5 px-2 flex items-center text-gray-500/50 dark:gray-300/40 focus-within:text-black dark:focus-within:text-gray-300/70 border border-gray-500/50 dark:border-gray-300/40 focus-within:border-black dark:focus-within:border-gray-300/70 transition-colors duration-300">
                     <User />
                     <input
                       {...field}
                       type="text"
                       placeholder="@username"
-                      className="px-3 py-2.5 outline-none w-full"
+                      className="px-3 py-2.5 outline-none w-full dark:placeholder:text-gray-400/50 dark:text-gray-400"
                     />
                   </div>
                   <FormMessage className="mt-2 text-sm text-red-600 font-medium" />
@@ -53,18 +53,17 @@ export default function LoginForm({ form, onSubmit }: Props) {
             <FormItem>
               <FormControl>
                 <div className="w-full md:w-1/2 mx-auto">
-                  <div className="mt-5 px-2 flex items-center border border-gray-500/50 focus-within:border-black transition-colors duration-300">
-                    <Key className="text-gray-700" />
+                  <div className="mt-5 px-2 flex items-center text-gray-500/50 dark:gray-300/40 focus-within:text-black dark:focus-within:text-gray-300/70 border border-gray-500/50 dark:border-gray-300/40 focus-within:border-black dark:focus-within:border-gray-300/70 transition-colors duration-300">
+                    <Key />
                     <input
                       {...field}
                       type={showPassword ? "text" : "password"}
                       placeholder="Password"
-                      className="px-3 py-2.5 outline-none w-full"
+                      className="px-3 py-2.5 outline-none w-full dark:placeholder:text-gray-400/50 dark:text-gray-400"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword((p) => !p)}
-                      className="text-gray-700 hover:text-black transition-colors duration-300"
                     >
                       {showPassword ? (
                         <EyeOff className="w-5 h-5" />

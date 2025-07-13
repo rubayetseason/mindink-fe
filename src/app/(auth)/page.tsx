@@ -1,6 +1,5 @@
 "use client";
 
-import { mindInkAssets } from "@/assets";
 import { Separator } from "@/components/ui/separator";
 import {
   LoginFormData,
@@ -10,10 +9,10 @@ import {
 } from "@/schemas/authSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
+import AuthThemedLogo from "./_components/AuthThemedLogo";
 import LoginForm from "./_components/LoginForm";
 import SignupForm from "./_components/SignupForm";
 
@@ -53,11 +52,7 @@ export default function Home() {
     <div className="px-4 max-w-[var(--custom-width)] mx-auto w-full h-screen font-raleway flex flex-col md:flex-row justify-center items-center gap-10">
       {/* left logo */}
       <div className="w-full md:w-1/2">
-        <Image
-          src={mindInkAssets?.logos?.logo_black}
-          alt="logo"
-          className="w-44 md:w-96 mx-auto"
-        />
+        <AuthThemedLogo></AuthThemedLogo>
       </div>
 
       {/* right panel */}
@@ -85,7 +80,7 @@ export default function Home() {
               <div className="w-full md:w-1/2 mx-auto">
                 <button
                   type="button"
-                  className="px-2 py-2.5 w-full bg-black text-white flex justify-center items-center gap-3 transition hover:brightness-110"
+                  className="px-2 py-2.5 w-full bg-black dark:bg-gray-200 text-white dark:text-black flex justify-center items-center gap-3 transition hover:brightness-110"
                   onClick={() => console.log("Google OAuth (signup)")}
                 >
                   <FcGoogle />
@@ -97,7 +92,7 @@ export default function Home() {
                 Already have an account?{" "}
                 <span
                   onClick={toggleForm}
-                  className="underline text-indigo-950 font-semibold cursor-pointer"
+                  className="underline text-indigo-950 dark:text-white font-semibold cursor-pointer"
                 >
                   Sign In
                 </span>
@@ -124,7 +119,7 @@ export default function Home() {
               <div className="w-full md:w-1/2 mx-auto">
                 <button
                   type="button"
-                  className="px-2 py-2.5 w-full bg-black text-white flex justify-center items-center gap-3 transition hover:brightness-110"
+                  className="px-2 py-2.5 w-full bg-black dark:bg-gray-200 text-white dark:text-black flex justify-center items-center gap-3 transition hover:brightness-110"
                   onClick={() => console.log("Google OAuth (login)")}
                 >
                   <FcGoogle />
@@ -135,7 +130,7 @@ export default function Home() {
                 Don&apos;t have an account?{" "}
                 <span
                   onClick={toggleForm}
-                  className="underline text-indigo-950 font-semibold cursor-pointer"
+                  className="underline text-indigo-950 dark:text-white font-semibold cursor-pointer"
                 >
                   Sign Up
                 </span>
