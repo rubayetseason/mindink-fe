@@ -16,6 +16,7 @@ type Props = {
 const SinglePost = async ({ params, searchParams }: Props) => {
   const { postId } = await params;
   const search = await searchParams;
+  console.log(search);
 
   return (
     <div className="pb-10">
