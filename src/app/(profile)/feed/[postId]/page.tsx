@@ -7,16 +7,19 @@ export const metadata: Metadata = {
   description: "View the full post details",
 };
 
-interface Props {
-  params: { postId: string };
+// 👇 The key fix is making params a Promise
+type Props = {
+  params: Promise<{ postId: string }>;
   searchParams: { [key: string]: string | string[] | undefined };
-}
+};
 
-const SinglePost = ({ params }: Props) => {
+const SinglePost = async ({ params }: Props) => {
+  const { postId } = await params;
+
   return (
     <div className="pb-10">
-      <PostContent postId={params.postId} />
-      <CommentSection postId={params.postId} />
+      <PostContent postId={postId} />
+      <CommentSection postId={postId} />
     </div>
   );
 };
