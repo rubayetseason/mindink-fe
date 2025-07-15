@@ -1,7 +1,14 @@
+import { FC } from "react";
 import CommentSection from "@/components/shared/posts/CommentSection";
 import PostContent from "@/components/shared/posts/PostContent";
 
-const SinglePost = ({ params }: { params: { postId: string } }) => {
+interface PostPageProps {
+  params: {
+    postId: string;
+  };
+}
+
+const SinglePost: FC<PostPageProps> = ({ params }) => {
   console.log(params?.postId);
 
   return (
