@@ -7,14 +7,15 @@ export const metadata: Metadata = {
   description: "View the full post details",
 };
 
-// 👇 The key fix is making params a Promise
+// ✅ Fix: Both params and searchParams must be Promise types
 type Props = {
   params: Promise<{ postId: string }>;
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-const SinglePost = async ({ params }: Props) => {
+const SinglePost = async ({ params, searchParams }: Props) => {
   const { postId } = await params;
+  const search = await searchParams;
 
   return (
     <div className="pb-10">
