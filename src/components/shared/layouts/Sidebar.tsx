@@ -10,7 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { menuItems } from "@/constants/menuList";
-import { LogOut, Moon, Sparkles, Sun } from "lucide-react";
+import { Loader, LogOut, Moon, Sparkles, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import SidebarThemedLogo from "./SidebarThemedLogo";
@@ -27,9 +27,15 @@ const Sidebar = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
-
   const isDark = resolvedTheme === "dark";
+
+  if (!mounted) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loader className="w-8 h-8 animate-spin text-blue-700" />
+      </div>
+    );
+  }
 
   return (
     <div className="relative h-screen">
