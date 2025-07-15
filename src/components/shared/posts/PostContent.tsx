@@ -3,7 +3,9 @@ import { samplePost } from "@/constants";
 import { Heart, MessageCircle, Repeat } from "lucide-react";
 import Image from "next/image";
 
-const PostContent = () => {
+const PostContent = ({ postId }: { postId: string }) => {
+  console.log(postId);
+
   return (
     <div className="w-full max-w-3xl mx-auto px-4 py-10 space-y-6">
       {/* Title */}

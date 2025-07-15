@@ -8,12 +8,10 @@ interface PostPageProps {
 }
 
 const SinglePost = ({ params }: PostPageProps) => {
-  console.log(params?.postId);
-
   return (
     <div className="pb-10">
-      <PostContent />
-      <CommentSection />
+      <PostContent postId={params.postId} />
+      <CommentSection postId={params.postId} />
     </div>
   );
 };

@@ -9,7 +9,9 @@ import { Comment } from "@/types";
 
 const name = "John Doe";
 
-export default function CommentSection() {
+export default function CommentSection({ postId }: { postId: string }) {
+  console.log(postId);
+
   const [comments] = useState<Comment[]>(mockComments);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
