@@ -32,7 +32,7 @@ const Sidebar = () => {
   const isDark = resolvedTheme === "dark";
 
   return (
-    <div>
+    <div className="relative h-screen">
       <SidebarThemedLogo></SidebarThemedLogo>
       {menuItems.map((item) => (
         <div

@@ -1,7 +1,22 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import FollowingTab from "./_components/FollowingTab";
+import ForYouTab from "./_components/ForYouTab";
+
 const FeedPage = () => {
   return (
     <div>
-      <h1>This is your feed</h1>
+      <Tabs defaultValue="following">
+        <TabsList className="sticky top-0 w-full text-xl rounded-none">
+          <TabsTrigger value="foryou">For You</TabsTrigger>
+          <TabsTrigger value="following">Following</TabsTrigger>
+        </TabsList>
+        <TabsContent value="foryou">
+          <ForYouTab></ForYouTab>
+        </TabsContent>
+        <TabsContent value="following">
+          <FollowingTab></FollowingTab>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };

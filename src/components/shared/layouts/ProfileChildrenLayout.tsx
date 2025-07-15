@@ -2,16 +2,19 @@ import Sidebar from "./Sidebar";
 
 const ProfileChildrenLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
-      <div className="px-4 max-w-[var(--custom-width)] mx-auto min-h-screen w-full flex">
-        <div className="hidden md:block relative pr-5 w-72">
-          <Sidebar></Sidebar>
-        </div>
-        <div className="flex-1 md:border-l-[1px] border-gray-400/50 dark:border-gray-600/50">
-          {children}
-        </div>
+    <div className="w-full px-4">
+      <div className="max-w-[var(--custom-width)] mx-auto flex min-h-screen">
+        {/* Sidebar */}
+        <aside className="hidden md:block w-72 pr-6">
+          <div className="sticky top-0">
+            <Sidebar />
+          </div>
+        </aside>
+
+        {/* Content */}
+        <main className="flex-1 border-l border-border">{children}</main>
       </div>
-    </>
+    </div>
   );
 };
 
