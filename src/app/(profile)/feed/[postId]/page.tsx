@@ -1,3 +1,6 @@
+import CommentSection from "@/components/shared/posts/CommentSection";
+import PostContent from "@/components/shared/posts/PostContent";
+
 interface PostPageProps {
   params: {
     postId: string;
@@ -5,10 +8,12 @@ interface PostPageProps {
 }
 
 const SinglePost = ({ params }: PostPageProps) => {
+  console.log(params?.postId);
+
   return (
     <div className="pb-10">
-      <PostContent postId={params.postId} />
-      <CommentSection postId={params.postId} />
+      <PostContent />
+      <CommentSection />
     </div>
   );
 };
