@@ -6,7 +6,7 @@ const FeedPage = () => {
   return (
     <div>
       <Tabs defaultValue="following">
-        <TabsList className="sticky top-0 w-full text-xl rounded-none">
+        <TabsList className="sticky top-0 w-full text-xl rounded-none z-10">
           <TabsTrigger value="foryou">For You</TabsTrigger>
           <TabsTrigger value="following">Following</TabsTrigger>
         </TabsList>

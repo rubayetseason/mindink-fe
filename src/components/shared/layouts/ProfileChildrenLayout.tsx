@@ -12,7 +12,7 @@ const ProfileChildrenLayout = ({ children }: { children: React.ReactNode }) => {
         </aside>
 
         {/* Content */}
-        <main className="flex-1 border-l border-border">{children}</main>
+        <main className="flex-1 md:border-l md:border-border">{children}</main>
       </div>
     </div>
   );
