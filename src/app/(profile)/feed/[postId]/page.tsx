@@ -1,6 +1,6 @@
-import { FC } from "react";
 import CommentSection from "@/components/shared/posts/CommentSection";
 import PostContent from "@/components/shared/posts/PostContent";
+import { FC } from "react";
 
 interface PostPageProps {
   params: {
