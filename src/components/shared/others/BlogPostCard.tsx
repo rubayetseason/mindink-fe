@@ -12,6 +12,7 @@ import { BlogPostCardProps } from "@/types";
 import { formatDistanceToNow } from "date-fns";
 import { Eye, Heart, MessageCircle, Repeat } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export function BlogPostCard({
@@ -25,6 +26,7 @@ export function BlogPostCard({
   stats,
 }: BlogPostCardProps) {
   console.log(postId);
+
   const [liked, setLiked] = useState(false);
 
   return (
@@ -50,17 +52,21 @@ export function BlogPostCard({
         </div>
       </CardHeader>
 
-      <CardContent className="px-4">
-        <Image
-          src={thumbnail}
-          alt={title}
-          width={800}
-          height={400}
-          className="rounded-md object-cover w-full h-96 mb-4"
-        />
-        <h2 className="text-xl font-semibold mb-1">{title}</h2>
-        <p className="text-muted-foreground line-clamp-3">{shortDescription}</p>
-      </CardContent>
+      <Link href="/feed/123" className="cursor-pointer">
+        <CardContent className="px-4">
+          <Image
+            src={thumbnail}
+            alt={title}
+            width={800}
+            height={400}
+            className="rounded-md object-cover w-full h-96 mb-4"
+          />
+          <h2 className="text-xl font-semibold mb-1">{title}</h2>
+          <p className="text-muted-foreground line-clamp-3">
+            {shortDescription}
+          </p>
+        </CardContent>
+      </Link>
 
       <CardFooter className="flex justify-between items-center text-lg text-muted-foreground px-4 pb-4">
         <div className="flex items-center gap-4">

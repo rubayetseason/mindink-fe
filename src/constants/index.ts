@@ -1,3 +1,5 @@
+import { Comment } from "@/types";
+
 export const blogPosts = [
   {
     postId: "post-001",
@@ -74,5 +76,51 @@ export const blogPosts = [
       comments: 8,
       shares: 3,
     },
+  },
+];
+
+export const samplePost = {
+  id: "post-123",
+  title: "Why Developers Should Embrace Morning Routines",
+  coverImage: "https://picsum.photos/900/400",
+  content: `
+    <p>In a world of late-night coding and caffeine, the idea of waking up early can feel alien. But many successful developers swear by structured morning routines.</p>
+    <h2>The Benefits of Morning Routines</h2>
+    <ul>
+      <li>Better focus and mental clarity</li>
+      <li>Dedicated time for learning and reflection</li>
+      <li>Improved physical and mental health</li>
+    </ul>
+    <p>Whether it's journaling, exercising, or simply drinking coffee in peace, morning rituals can set a powerful tone for your entire day.</p>
+    <blockquote>“Win the morning, win the day.”</blockquote>
+    <p>Start small. Wake up 15 minutes earlier tomorrow and build from there.</p>
+  `,
+  stats: {
+    likes: 128,
+    comments: 24,
+    shares: 12,
+  },
+};
+
+export const mockComments: Comment[] = [
+  {
+    id: "1",
+    user: { name: "Alice Johnson" },
+    content: "Great post! I especially liked the part about routines.",
+    likes: 4,
+    replies: [
+      {
+        id: "1-1",
+        user: { name: "John Doe" },
+        content: "Thanks Alice! Glad it helped.",
+        likes: 2,
+      },
+    ],
+  },
+  {
+    id: "2",
+    user: { name: "Samantha Lee" },
+    content: "This changed my perspective on mornings completely!",
+    likes: 7,
   },
 ];

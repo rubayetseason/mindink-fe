@@ -16,3 +16,24 @@ export interface BlogPostCardProps {
     shares: number;
   };
 }
+
+export interface SinglePostProps {
+  post: {
+    title: string;
+    coverImage: string;
+    content: string;
+    stats: {
+      likes: number;
+      comments: number;
+      shares: number;
+    };
+  };
+}
+
+export interface Comment {
+  id: string;
+  user: { name: string; avatar?: string };
+  content: string;
+  likes: number;
+  replies?: Comment[];
+}
