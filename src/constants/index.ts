@@ -18,6 +18,7 @@ export const blogPosts = [
       likes: 120,
       comments: 18,
       shares: 9,
+      bookmarks: 7,
     },
   },
   {
@@ -37,6 +38,7 @@ export const blogPosts = [
       likes: 88,
       comments: 10,
       shares: 5,
+      bookmarks: 7,
     },
   },
   {
@@ -56,6 +58,7 @@ export const blogPosts = [
       likes: 160,
       comments: 25,
       shares: 14,
+      bookmarks: 7,
     },
   },
   {
@@ -75,6 +78,7 @@ export const blogPosts = [
       likes: 60,
       comments: 8,
       shares: 3,
+      bookmarks: 7,
     },
   },
 ];
@@ -99,6 +103,7 @@ export const samplePost = {
     likes: 128,
     comments: 24,
     shares: 12,
+    bookmarks: 7,
   },
 };
 

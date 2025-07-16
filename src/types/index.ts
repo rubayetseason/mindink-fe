@@ -14,6 +14,7 @@ export interface BlogPostCardProps {
     likes: number;
     comments: number;
     shares: number;
+    bookmarks: number;
   };
 }
 
@@ -26,6 +27,7 @@ export interface SinglePostProps {
       likes: number;
       comments: number;
       shares: number;
+      bookmarks: number;
     };
   };
 }

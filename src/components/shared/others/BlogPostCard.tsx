@@ -10,7 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import { BlogPostCardProps } from "@/types";
 import { formatDistanceToNow } from "date-fns";
-import { Eye, Heart, MessageCircle, Repeat } from "lucide-react";
+import { Eye, Heart, MessageCircle, Repeat, Bookmark } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -89,6 +89,11 @@ export function BlogPostCard({
             <Repeat className="h-4 w-4" />
           </Button>
           <span>{stats.shares}</span>
+
+          <Button variant="ghost" size="icon">
+            <Bookmark className="h-4 w-4" />
+          </Button>
+          <span>{stats.bookmarks}</span>
         </div>
 
         <div className="flex items-center gap-1">
