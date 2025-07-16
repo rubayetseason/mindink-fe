@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/tooltip";
 import { blogPosts } from "@/constants";
 import { Sparkles } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const name = "John Doe";
@@ -58,9 +59,11 @@ const FollowingTab = () => {
             </h1>
           </div>
         </div>
-        <button className="bg-gradient-animate hover-pulse px-5 py-2.5 w-fit text-white text-lg font-medium flex justify-center items-center gap-3 rounded-[30px]">
-          Create a Post <Sparkles size="18" />
-        </button>
+        <Link href="/create-post">
+          <button className="bg-gradient-animate hover-pulse px-5 py-2.5 w-fit text-white text-lg font-medium flex justify-center items-center gap-3 rounded-[30px]">
+            Create a Post <Sparkles size="18" />
+          </button>
+        </Link>
       </div>
       {loading
         ? Array.from({ length: 3 }).map((_, i) => <BlogPostSkeleton key={i} />)

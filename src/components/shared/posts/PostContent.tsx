@@ -12,6 +12,19 @@ const PostContent = ({ postId }: { postId: string }) => {
       <GoBackButton></GoBackButton>
       <h1 className="text-5xl font-bold tracking-tight">{samplePost.title}</h1>
 
+      {samplePost.stats.hashtags.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {samplePost.stats.hashtags.map((tag, index) => (
+            <span
+              key={index}
+              className="px-3 py-1 bg-muted flex items-center gap-1 rounded-full"
+            >
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
+
       {/* Cover Image */}
       <Image
         src={samplePost.coverImage}

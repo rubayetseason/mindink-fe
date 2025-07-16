@@ -19,6 +19,7 @@ export const blogPosts = [
       comments: 18,
       shares: 9,
       bookmarks: 7,
+      hashtags: ["morning", "productivity", "focus"],
     },
   },
   {
@@ -39,6 +40,7 @@ export const blogPosts = [
       comments: 10,
       shares: 5,
       bookmarks: 7,
+      hashtags: ["tailwind", "css", "performance"],
     },
   },
   {
@@ -59,6 +61,7 @@ export const blogPosts = [
       comments: 25,
       shares: 14,
       bookmarks: 7,
+      hashtags: ["nextjs", "api", "performance"],
     },
   },
   {
@@ -79,6 +82,7 @@ export const blogPosts = [
       comments: 8,
       shares: 3,
       bookmarks: 7,
+      hashtags: ["sideprojects", "motivation", "productivity"],
     },
   },
 ];
@@ -104,6 +108,7 @@ export const samplePost = {
     comments: 24,
     shares: 12,
     bookmarks: 7,
+    hashtags: ["morning", "productivity", "focus"],
   },
 };
 

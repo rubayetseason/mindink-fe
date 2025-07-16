@@ -14,6 +14,7 @@ import { Loader, LogOut, Moon, Sparkles, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import SidebarThemedLogo from "./SidebarThemedLogo";
+import Link from "next/link";
 
 const name = "John Doe";
 const userName = "@johndoe";
@@ -64,9 +65,11 @@ const Sidebar = () => {
       </div>
 
       <div className="w-full md:w-[75%] mx-auto">
-        <button className="bg-gradient-animate hover-pulse mt-10 px-2 py-2.5 w-full text-white text-lg font-medium flex justify-center items-center gap-3 rounded-[30px]">
-          Post <Sparkles size="18" />
-        </button>
+        <Link href="/create-post">
+          <button className="bg-gradient-animate hover-pulse mt-10 px-2 py-2.5 w-full text-white text-lg font-medium flex justify-center items-center gap-3 rounded-[30px]">
+            Post <Sparkles size="18" />
+          </button>
+        </Link>
       </div>
 
       <div className="px-4 w-full absolute bottom-4 left-0">

@@ -68,6 +68,19 @@ export function BlogPostCard({
         </CardContent>
       </Link>
 
+      {stats.hashtags.length > 0 && (
+        <div className="px-4 flex flex-wrap gap-2">
+          {stats.hashtags.map((tag, index) => (
+            <span
+              key={index}
+              className="flex items-center gap-1 px-3 py-1 rounded-full bg-muted text-sm"
+            >
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
+
       <CardFooter className="flex justify-between items-center text-lg text-muted-foreground px-4 pb-4">
         <div className="flex items-center gap-4">
           <Button
