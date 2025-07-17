@@ -134,3 +134,66 @@ export const mockComments: Comment[] = [
     likes: 7,
   },
 ];
+
+export const colors = [
+  // Red shades
+  "#FDEAEA",
+  "#F28B82",
+  "#D93025",
+  "#B31412",
+  "#7A0C02",
+  // Orange shades
+  "#FEF3E2",
+  "#FBC48B",
+  "#FB8C00",
+  "#EF6C00",
+  "#E65100",
+  // Yellow shades
+  "#FFF8E1",
+  "#FEEA61",
+  "#FDD835",
+  "#FBC02D",
+  "#F9A825",
+  // Green shades
+  "#E6F4EA",
+  "#81C995",
+  "#34A853",
+  "#0F9D58",
+  "#0B8043",
+  // Teal shades
+  "#E0F2F1",
+  "#80CBC4",
+  "#26A69A",
+  "#009688",
+  "#00695C",
+  // Blue shades
+  "#E8F0FE",
+  "#AECBFA",
+  "#4285F4",
+  "#1967D2",
+  "#174EA6",
+  // Indigo shades
+  "#EAEAFD",
+  "#C7CAF5",
+  "#7070D0",
+  "#5C6BC0",
+  "#303F9F",
+  // Purple shades
+  "#F3E5F5",
+  "#CE93D8",
+  "#AB47BC",
+  "#8E24AA",
+  "#6A1B9A",
+  // Pink shades
+  "#FCE4EC",
+  "#F48FB1",
+  "#EC407A",
+  "#D81B60",
+  "#880E4F",
+  // Gray/Black shades
+  "#F5F5F5",
+  "#D6D6D6",
+  "#A8A8A8",
+  "#646464",
+  "#212121",
+];

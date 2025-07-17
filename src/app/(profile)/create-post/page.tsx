@@ -5,6 +5,7 @@ import { uploadImage } from "@/utils/uploadImage";
 import { Mountain, Plus, Undo2, X } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import CreatePostEditor from "./_components/CreatePostEditor";
 
 const CreatePostPage = () => {
   const [previewUrl, setPreviewUrl] = useState("");
@@ -123,6 +124,8 @@ const CreatePostPage = () => {
             </div>
           )}
         </div>
+
+        <CreatePostEditor></CreatePostEditor>
       </div>
     </div>
   );
