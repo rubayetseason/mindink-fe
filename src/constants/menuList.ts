@@ -1,10 +1,10 @@
 import {
-    Bookmark,
-    House,
-    LayoutDashboard,
-    Rss,
-    Search,
-    User
+  Bookmark,
+  House,
+  LayoutDashboard,
+  Rss,
+  Search,
+  User,
 } from "lucide-react";
 
 export const menuItems = [
@@ -35,7 +35,7 @@ export const menuItems = [
   },
   {
     name: "Kanban Board",
-    href: "/kanban",
+    href: "/kanban-board",
     icon: LayoutDashboard,
   },
 ];

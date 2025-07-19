@@ -15,6 +15,8 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import SidebarThemedLogo from "./SidebarThemedLogo";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const name = "John Doe";
 const userName = "@johndoe";
@@ -22,6 +24,8 @@ const userName = "@johndoe";
 const Sidebar = () => {
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
+  const location = usePathname();
 
   // Avoid hydration mismatch
   useEffect(() => {
@@ -41,15 +45,24 @@ const Sidebar = () => {
   return (
     <div className="relative h-screen">
       <SidebarThemedLogo></SidebarThemedLogo>
-      {menuItems.map((item) => (
-        <div
-          key={item.name}
-          className="px-5 py-3 mb-3 text-xl flex items-center gap-4 border-[1px] border-transparent hover:bg-gray-100 dark:hover:bg-gray-300/500 hover:border-blue-700/50 cursor-pointer transition-all duration-300 rounded-[30px]"
-        >
-          {item?.icon && <item.icon className="size-7"></item.icon>}
-          <p>{item.name}</p>
-        </div>
-      ))}
+      {menuItems.map((item) => {
+        const isActive = location === item.href;
+
+        return (
+          <Link key={item.name} href={item.href}>
+            <div
+              className={cn(
+                "px-5 py-3 mb-3 text-xl flex items-center gap-4 border-[1px] border-transparent hover:bg-gray-100 dark:hover:bg-gray-300/500 hover:border-blue-700/50 cursor-pointer transition-all duration-300 rounded-[30px]",
+                isActive &&
+                  "bg-black hover:bg-black dark:bg-white dark:hover:bg-white text-white hover:text-white dark:text-black dark:hover:text-black"
+              )}
+            >
+              {item?.icon && <item.icon className="size-7" />}
+              <p>{item.name}</p>
+            </div>
+          </Link>
+        );
+      })}
 
       <div
         onClick={() => setTheme(isDark ? "light" : "dark")}
