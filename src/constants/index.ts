@@ -202,3 +202,11 @@ export const colors = [
   "#646464",
   "#212121",
 ];
+
+export const trendingTopics = [
+  "AI & ML",
+  "Dark UX",
+  "Startup Culture",
+  "Design Systems",
+  "TypeScript Tips",
+];
