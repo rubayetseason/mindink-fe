@@ -39,7 +39,7 @@ export function BlogPostCard({
     <div className="h-96 py-0 flex flex-row items-start font-raleway border border-input rounded-xl shadow-none">
       <div className="w-96 h-full">
         <Image
-          onClick={() => router.push(`/feed/${postId}`)}
+          onClick={() => router.push(`/posts/${postId}`)}
           className="w-full h-full oject-cover rounded-l-xl"
           src={thumbnail}
           alt={title}
@@ -48,7 +48,7 @@ export function BlogPostCard({
         />
       </div>
       <div className="p-6 w-full h-full flex flex-col justify-between">
-        <Link href="/feed/123">
+        <Link href="/posts/123">
           <div>
             {stats.hashtags.length > 0 && (
               <div className="pr-4 flex flex-wrap gap-2">
@@ -84,9 +84,11 @@ export function BlogPostCard({
                 </div>
                 <div>
                   {myposts ? (
-                    <Button>
-                      <Edit /> Edit
-                    </Button>
+                    <Link href={`/posts/${postId}/edit`}>
+                      <Button>
+                        <Edit /> Edit
+                      </Button>
+                    </Link>
                   ) : (
                     <Button>
                       <UserRoundCheck /> Following
