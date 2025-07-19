@@ -21,22 +21,11 @@ import StarterKit from "@tiptap/starter-kit";
 // tiptap extension for content generation editor
 export const tiptapExtensions = [
   StarterKit.configure({
-    paragraph: {
-      HTMLAttributes: {
-        class: "tiptap p-0 m-0 text-sm",
-      },
-    },
+    paragraph: {},
   }),
-  Paragraph.configure({
-    HTMLAttributes: {
-      class: "tiptap p-0 m-0 text-sm",
-    },
-  }),
+  Paragraph.configure({}),
   Heading.configure({
     levels: [2, 3],
-    HTMLAttributes: {
-      class: "tiptap m-0 p-0",
-    },
   }),
   Bold,
   Italic,
@@ -47,17 +36,9 @@ export const tiptapExtensions = [
   }),
   TextStyle,
   Color,
-  Code.configure({
-    HTMLAttributes: {
-      class:
-        "tiptap bg-[#F0EEEC] rounded-md text-[#f97316] text-[0.85rem] px-1 py-0.5",
-    },
-  }),
+  Code.configure({}),
   TiptapImage.configure({
     inline: true,
-    HTMLAttributes: {
-      class: "tiptap-image",
-    },
   }),
   Link.extend({
     addAttributes() {
@@ -112,30 +93,11 @@ export const tiptapExtensions = [
     autolink: true,
     defaultProtocol: "https",
     validate: (href) => /^https?:\/\//.test(href) || /^www\./.test(href),
-    HTMLAttributes: {
-      class: "tiptap cursor-pointer hover:text-[#f97356]",
-    },
   }),
-  Blockquote.configure({
-    HTMLAttributes: {
-      class: "tiptap border-l-[3px] border-[#f97316] my-6 pl-4",
-    },
-  }),
-  ListItem.configure({
-    HTMLAttributes: {
-      class: "tiptap-list-item",
-    },
-  }),
-  BulletList.configure({
-    HTMLAttributes: {
-      class: "tiptap list-disc pl-4 my-5",
-    },
-  }),
-  OrderedList.configure({
-    HTMLAttributes: {
-      class: "tiptap list-decimal pl-4 my-5",
-    },
-  }),
+  Blockquote.configure({}),
+  ListItem.configure({}),
+  BulletList.configure({}),
+  OrderedList.configure({}),
   Superscript,
   Subscript,
 ];

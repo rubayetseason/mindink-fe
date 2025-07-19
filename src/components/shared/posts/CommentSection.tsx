@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, MessageCircle, Send } from "lucide-react";
+import { Heart, MessageSquare, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { mockComments } from "@/constants";
@@ -80,7 +80,7 @@ export default function CommentSection({ postId }: { postId: string }) {
                     onClick={() => toggleReplies(comment.id)}
                     className="cursor-pointer font-semibold flex gap-1 items-center"
                   >
-                    <MessageCircle size={14} />
+                    <MessageSquare size={14} />
                     {expanded[comment.id]
                       ? "Hide Replies"
                       : `View Replies (${comment.replies?.length || 0})`}

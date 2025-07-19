@@ -3,7 +3,8 @@ import { Comment } from "@/types";
 export const blogPosts = [
   {
     postId: "post-001",
-    thumbnail: "https://picsum.photos/600/300",
+    thumbnail: "https://picsum.photos/500/700",
+    coverImage: "https://picsum.photos/600/300",
     title: "The Power of Morning Routines for Developers",
     shortDescription:
       "Starting your day with a consistent routine can drastically improve your focus and productivity. Discover how top developers plan their mornings.",
@@ -24,7 +25,8 @@ export const blogPosts = [
   },
   {
     postId: "post-002",
-    thumbnail: "https://picsum.photos/200/300",
+    thumbnail: "https://picsum.photos/500/700",
+    coverImage: "https://picsum.photos/600/300",
     title: "Tailwind CSS Tips You Probably Didn't Know",
     shortDescription:
       "Tailwind is more powerful than you think. Here are some hidden utilities, performance tips, and layout tricks for faster UIs.",
@@ -45,7 +47,8 @@ export const blogPosts = [
   },
   {
     postId: "post-003",
-    thumbnail: "https://picsum.photos/200/300",
+    thumbnail: "https://picsum.photos/500/700",
+    coverImage: "https://picsum.photos/600/300",
     title: "Building a Scalable API with Next.js 15 App Router",
     shortDescription:
       "Explore best practices for building robust and scalable APIs using Next.js 15’s app directory, with edge functions and route handlers.",
@@ -66,7 +69,8 @@ export const blogPosts = [
   },
   {
     postId: "post-004",
-    thumbnail: "https://picsum.photos/200/300",
+    thumbnail: "https://picsum.photos/500/700",
+    coverImage: "https://picsum.photos/600/300",
     title: "How to Stay Motivated During Side Projects",
     shortDescription:
       "Side projects can be exciting at first but hard to finish. Here are practical strategies to stay on track and actually ship.",
@@ -90,6 +94,7 @@ export const blogPosts = [
 export const samplePost = {
   id: "post-123",
   title: "Why Developers Should Embrace Morning Routines",
+  thumbnail: "https://picsum.photos/500/700",
   coverImage: "https://picsum.photos/900/400",
   content: `
     <p>In a world of late-night coding and caffeine, the idea of waking up early can feel alien. But many successful developers swear by structured morning routines.</p>

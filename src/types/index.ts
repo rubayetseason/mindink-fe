@@ -1,6 +1,7 @@
 export interface BlogPostCardProps {
   postId: string;
   thumbnail: string;
+  coverImage: string;
   title: string;
   shortDescription: string;
   readCount: number;
@@ -22,6 +23,7 @@ export interface BlogPostCardProps {
 export interface SinglePostProps {
   post: {
     title: string;
+    thumbnail: string;
     coverImage: string;
     content: string;
     stats: {

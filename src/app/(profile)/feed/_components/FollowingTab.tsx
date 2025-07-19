@@ -53,11 +53,13 @@ const FollowingTab = () => {
               <TooltipContent side="bottom">Profile</TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          <div>
-            <h1 className="text-gray-400 dark:text-gray-600">
-              What&apos;s on your mind...
-            </h1>
-          </div>
+          <Link href="/create-post">
+            <div>
+              <h1 className="text-gray-400 dark:text-gray-600">
+                What&apos;s on your mind...
+              </h1>
+            </div>
+          </Link>
         </div>
         <Link href="/create-post">
           <button className="bg-gradient-animate hover-pulse px-5 py-2.5 w-fit text-white text-lg font-medium flex justify-center items-center gap-3 rounded-[30px]">

@@ -1,18 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { BlogPostCardProps } from "@/types";
 import { formatDistanceToNow } from "date-fns";
-import { Eye, Heart, MessageCircle, Repeat, Bookmark } from "lucide-react";
+import { Bookmark, Eye, Heart, MessageSquare, Repeat } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export function BlogPostCard({
@@ -27,93 +22,93 @@ export function BlogPostCard({
 }: BlogPostCardProps) {
   console.log(postId);
 
+  const router = useRouter();
+
   const [liked, setLiked] = useState(false);
 
   return (
-    <Card className="w-full mx-auto font-raleway">
-      <CardHeader className="flex items-center gap-4">
+    <div className="h-96 py-0 flex flex-row items-start font-raleway border border-input rounded-xl shadow-none">
+      <div className="w-96 h-full">
         <Image
-          src={user.avatar}
-          alt={user.name}
-          width={40}
-          height={40}
-          className="rounded-full object-cover"
+          onClick={() => router.push(`/feed/${postId}`)}
+          className="w-full h-full oject-cover rounded-l-xl"
+          src={thumbnail}
+          alt={title}
+          width={1000}
+          height={1000}
         />
-        <div className="flex-1 flex justify-between items-center">
+      </div>
+      <div className="p-6 w-full h-full flex flex-col justify-between">
+        <Link href="/feed/123">
           <div>
-            <p className="font-medium">{user.name}</p>
-            <p className="text-sm text-muted-foreground">
-              {formatDistanceToNow(new Date(postedAt), { addSuffix: true })}
-            </p>
+            {stats.hashtags.length > 0 && (
+              <div className="pr-4 flex flex-wrap gap-2">
+                {stats.hashtags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900 text-sm"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
+            <h2 className="mt-5 text-4xl font-bold">{title}</h2>
+            <p className="mt-5 text-muted-foreground">{shortDescription}</p>
+
+            <div className="mt-9 flex items-center gap-4">
+              <Image
+                src={user.avatar}
+                alt={user.name}
+                width={40}
+                height={40}
+                className="rounded-full object-cover"
+              />
+              <div className="flex-1 flex justify-between items-center">
+                <div>
+                  <p className="font-medium">{user.name}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {formatDistanceToNow(new Date(postedAt), {
+                      addSuffix: true,
+                    })}
+                  </p>
+                </div>
+                <div>
+                  <Button>Following</Button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <Button>Following</Button>
+        </Link>
+        <div className="mt-8 text-lg text-muted-foreground flex justify-between items-center">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
+              <Heart
+                onClick={() => setLiked((prev) => !prev)}
+                className={cn("text-muted-foreground", liked && "text-red-500")}
+              />
+              <span>{stats.likes}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MessageSquare />
+              <span>{stats.comments}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Repeat />
+              <span>{stats.shares}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Bookmark />
+              <span>{stats.bookmarks}</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Eye />
+            <span>{readCount} reads</span>
           </div>
         </div>
-      </CardHeader>
-
-      <Link href="/feed/123" className="cursor-pointer">
-        <CardContent className="px-4">
-          <Image
-            src={thumbnail}
-            alt={title}
-            width={800}
-            height={400}
-            className="rounded-md object-cover w-full h-96 mb-4"
-          />
-          <h2 className="text-xl font-semibold mb-1">{title}</h2>
-          <p className="text-muted-foreground line-clamp-3">
-            {shortDescription}
-          </p>
-        </CardContent>
-      </Link>
-
-      {stats.hashtags.length > 0 && (
-        <div className="px-4 flex flex-wrap gap-2">
-          {stats.hashtags.map((tag, index) => (
-            <span
-              key={index}
-              className="flex items-center gap-1 px-3 py-1 rounded-full bg-muted text-sm"
-            >
-              #{tag}
-            </span>
-          ))}
-        </div>
-      )}
-
-      <CardFooter className="flex justify-between items-center text-lg text-muted-foreground px-4 pb-4">
-        <div className="flex items-center gap-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setLiked((prev) => !prev)}
-            className={cn("text-muted-foreground", liked && "text-red-500")}
-          >
-            <Heart className="h-4 w-4" />
-          </Button>
-          <span>{stats.likes}</span>
-
-          <Button variant="ghost" size="icon">
-            <MessageCircle className="h-4 w-4" />
-          </Button>
-          <span>{stats.comments}</span>
-
-          <Button variant="ghost" size="icon">
-            <Repeat className="h-4 w-4" />
-          </Button>
-          <span>{stats.shares}</span>
-
-          <Button variant="ghost" size="icon">
-            <Bookmark className="h-4 w-4" />
-          </Button>
-          <span>{stats.bookmarks}</span>
-        </div>
-
-        <div className="flex items-center gap-1">
-          <Eye className="w-4 h-4" />
-          <span>{readCount} reads</span>
-        </div>
-      </CardFooter>
-    </Card>
+      </div>
+    </div>
   );
 }

@@ -1,8 +1,9 @@
 "use client";
+import GoBackButton from "@/components/shared/others/GoBackButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { uploadImage } from "@/utils/uploadImage";
-import { Mountain, Plus, Undo2, X } from "lucide-react";
+import { Mountain, Plus, X } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import CreatePostEditor from "./_components/CreatePostEditor";
@@ -27,8 +28,7 @@ const CreatePostPage = () => {
   return (
     <div>
       <div className="px-5 py-5 font-raleway flex items-center gap-4 border-b border-input">
-        <Undo2 className="w-5 h-5" onClick={() => history.back()} /> Create a
-        Post
+        <GoBackButton></GoBackButton> Create a Post
       </div>
 
       <div>
