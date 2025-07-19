@@ -18,6 +18,7 @@ export interface BlogPostCardProps {
     bookmarks: number;
     hashtags: string[];
   };
+  myposts?: boolean;
 }
 
 export interface SinglePostProps {

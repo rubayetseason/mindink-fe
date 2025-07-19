@@ -4,7 +4,15 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { BlogPostCardProps } from "@/types";
 import { formatDistanceToNow } from "date-fns";
-import { Bookmark, Eye, Heart, MessageSquare, Repeat } from "lucide-react";
+import {
+  Bookmark,
+  Edit,
+  Eye,
+  Heart,
+  MessageSquare,
+  Repeat,
+  UserRoundCheck,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -19,6 +27,7 @@ export function BlogPostCard({
   postedAt,
   user,
   stats,
+  myposts,
 }: BlogPostCardProps) {
   console.log(postId);
 
@@ -74,7 +83,15 @@ export function BlogPostCard({
                   </p>
                 </div>
                 <div>
-                  <Button>Following</Button>
+                  {myposts ? (
+                    <Button>
+                      <Edit /> Edit
+                    </Button>
+                  ) : (
+                    <Button>
+                      <UserRoundCheck /> Following
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
