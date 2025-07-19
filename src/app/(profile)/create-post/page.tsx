@@ -3,13 +3,14 @@ import GoBackButton from "@/components/shared/others/GoBackButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { uploadImage } from "@/utils/uploadImage";
-import { Mountain, Plus, X } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import CreatePostEditor from "./_components/CreatePostEditor";
 
 const CreatePostPage = () => {
-  const [previewUrl, setPreviewUrl] = useState("");
+  const [thumbnailUrl, setThumbnailUrl] = useState("");
+  const [bannerUrl, setBannerUrl] = useState("");
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState("");
 
@@ -40,38 +41,77 @@ const CreatePostPage = () => {
           />
         </div>
 
-        <div className="px-5 space-y-2">
-          <Label
-            htmlFor="file"
-            className="bg-muted h-72 w-full flex items-center justify-center cursor-pointer m-auto overflow-hidden rounded-xl"
-          >
-            {previewUrl ? (
-              <Image
-                src={previewUrl}
-                alt="file"
-                width={1000}
-                height={1000}
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <Mountain className="h-10 w-10 text-muted-foreground" />
-            )}
-          </Label>
-          <Input
-            id="file"
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={async (e) => {
-              const file = e.target.files?.[0];
-              if (file) {
-                const imageUrl = await uploadImage(file);
-                if (imageUrl) {
-                  setPreviewUrl(imageUrl);
+        <div className="px-5 flex items-center gap-5">
+          <div className="w-[30%] space-y-2">
+            <Label
+              htmlFor="file"
+              className="bg-muted h-96 w-full flex items-center justify-center cursor-pointer m-auto overflow-hidden rounded-xl"
+            >
+              {thumbnailUrl ? (
+                <Image
+                  src={thumbnailUrl}
+                  alt="file"
+                  width={1000}
+                  height={1000}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <h1 className="text-gray-500 dark:text-gray-400 text-lg font-medium">
+                  Thumbnail
+                </h1>
+              )}
+            </Label>
+            <Input
+              id="file"
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  const imageUrl = await uploadImage(file);
+                  if (imageUrl) {
+                    setThumbnailUrl(imageUrl);
+                  }
                 }
-              }
-            }}
-          />
+              }}
+            />
+          </div>
+          <div className="w-[70%] space-y-2">
+            <Label
+              htmlFor="file"
+              className="bg-muted h-96 w-full flex items-center justify-center cursor-pointer m-auto overflow-hidden rounded-xl"
+            >
+              {bannerUrl ? (
+                <Image
+                  src={bannerUrl}
+                  alt="file"
+                  width={1000}
+                  height={1000}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <h1 className="text-gray-500 dark:text-gray-400 text-lg font-medium">
+                  Banner
+                </h1>
+              )}
+            </Label>
+            <Input
+              id="file"
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  const imageUrl = await uploadImage(file);
+                  if (imageUrl) {
+                    setBannerUrl(imageUrl);
+                  }
+                }
+              }}
+            />
+          </div>
         </div>
 
         <div className="mx-3">
