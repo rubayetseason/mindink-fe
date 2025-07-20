@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Calendar, Edit, MapPin } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
+import EditProfileDialog from "./EditProfileDialog";
 
 const UserInformation = () => {
   return (
@@ -9,9 +9,7 @@ const UserInformation = () => {
         <div className="size-36 bg-gray-300 absolute -bottom-16 left-4 border border-black rounded-full"></div>
       </div>
       <div className="mt-5 px-5 flex justify-end">
-        <Button variant="default">
-          <Edit /> Edit Profile
-        </Button>
+        <EditProfileDialog />
       </div>
       <div className="mt-10 px-5 border-b border-input">
         <h1 className="text-2xl font-semibold">John Doe</h1>
