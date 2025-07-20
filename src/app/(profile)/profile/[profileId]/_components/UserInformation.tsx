@@ -1,5 +1,6 @@
 import { Calendar, MapPin } from "lucide-react";
 import EditProfileDialog from "./EditProfileDialog";
+import Link from "next/link";
 
 const UserInformation = () => {
   return (
@@ -29,14 +30,22 @@ const UserInformation = () => {
         </h1>
 
         <div className="my-5 text-muted-foreground flex items-center gap-5">
-          <h1>
-            <span className="text-black dark:text-white font-semibold">36</span>
-            Followers
-          </h1>
-          <h1>
-            <span className="text-black dark:text-white font-semibold">5</span>
-            Following
-          </h1>
+          <Link href={`/profile/123/followers-and-following?tab=followers`}>
+            <h1 className="flex items-center gap-2 cursor-pointer hover:underline">
+              <span className="text-black dark:text-white font-semibold">
+                36
+              </span>
+              Followers
+            </h1>
+          </Link>
+          <Link href={`/profile/123/followers-and-following?tab=following`}>
+            <h1 className="flex items-center gap-2 cursor-pointer hover:underline">
+              <span className="text-black dark:text-white font-semibold">
+                5
+              </span>
+              Following
+            </h1>
+          </Link>
         </div>
       </div>
     </div>
