@@ -8,6 +8,9 @@ import { LogOut, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import SidebarThemedLogo from "./SidebarThemedLogo";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const name = "John Doe";
 const userName = "@johndoe";
@@ -15,6 +18,7 @@ const userName = "@johndoe";
 const Navbar = () => {
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const location = usePathname();
 
   // Avoid hydration mismatch
   useEffect(() => {
@@ -44,38 +48,48 @@ const Navbar = () => {
         <SheetContent side="left">
           <div className="px-3 pt-7">
             <div>
-              <div className="mb-9 flex items-center gap-2 cursor-pointer">
-                <Button
-                  variant="outline"
-                  className="relative h-11 w-11 rounded-full"
-                >
-                  <Avatar className="h-8 w-8">
-                    <AvatarImage src="#" alt="Avatar" />
-                    <AvatarFallback className="bg-transparent text-indigo-700 dark:text-indigo-500 font-medium">
-                      {name
-                        ?.split(" ")
-                        .map((w) => w[0])
-                        .join("")}
-                    </AvatarFallback>
-                  </Avatar>
-                </Button>
-                <div className="flex flex-col">
-                  <h1 className="font-medium">{name}</h1>
-                  <h1 className="text-sm font-light">{userName}</h1>
+              <Link href="/profile/123">
+                <div className="mb-9 flex items-center gap-2 cursor-pointer">
+                  <Button
+                    variant="outline"
+                    className="relative h-11 w-11 rounded-full"
+                  >
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src="#" alt="Avatar" />
+                      <AvatarFallback className="bg-transparent text-indigo-700 dark:text-indigo-500 font-medium">
+                        {name
+                          ?.split(" ")
+                          .map((w) => w[0])
+                          .join("")}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                  <div className="flex flex-col">
+                    <h1 className="font-medium">{name}</h1>
+                    <h1 className="text-sm font-light">{userName}</h1>
+                  </div>
                 </div>
-              </div>
+              </Link>
 
-              {menuItems.map((item) => (
-                <div
-                  key={item.name}
-                  className="px-5 py-3 mb-3 text-lg md:text-xl flex items-center gap-4"
-                >
-                  {item?.icon && (
-                    <item.icon className="size-5 md:size-7"></item.icon>
-                  )}
-                  <p>{item.name}</p>
-                </div>
-              ))}
+              {menuItems.map((item) => {
+                const isActive = location === item.href;
+
+                return (
+                  <Link key={item.name} href={item.href}>
+                    <div
+                      className={cn(
+                        "px-5 py-3 mb-3 text-lg md:text-xl flex items-center gap-4 rounded-[30px] transition-all duration-300",
+                        isActive
+                          ? "bg-black dark:bg-white text-white dark:text-black"
+                          : "hover:bg-gray-100 dark:hover:bg-gray-300/500"
+                      )}
+                    >
+                      {item?.icon && <item.icon className="size-5 md:size-7" />}
+                      <p>{item.name}</p>
+                    </div>
+                  </Link>
+                );
+              })}
 
               <div
                 onClick={() => setTheme(isDark ? "light" : "dark")}

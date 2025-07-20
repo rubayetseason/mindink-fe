@@ -4,6 +4,7 @@ import { formatDistanceToNow } from "date-fns";
 import { blogPosts } from "@/constants";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { Flame } from "lucide-react";
+import Link from "next/link";
 
 const MiniBlogCard = () => {
   return (
@@ -17,29 +18,35 @@ const MiniBlogCard = () => {
           <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
           {/* Info */}
           <div className="flex flex-col justify-between flex-1 overflow-hidden">
-            <div>
-              <h3 className="text-base font-semibold truncate">{post.title}</h3>
-              <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-                {post.shortDescription}
-              </p>
-            </div>
+            <Link href="/posts/123">
+              <div>
+                <h3 className="text-base font-semibold truncate">
+                  {post.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
+                  {post.shortDescription}
+                </p>
+              </div>
+            </Link>
 
             {/* Author */}
-            <div className="mt-3 flex items-center gap-2">
-              <Image
-                src={post.user.avatar}
-                alt={post.user.name}
-                width={24}
-                height={24}
-                className="w-6 h-6 rounded-full object-cover"
-              />
-              <p className="text-xs font-medium text-muted-foreground truncate">
-                {post.user.name} ·{" "}
-                {formatDistanceToNow(new Date(post.postedAt), {
-                  addSuffix: true,
-                })}
-              </p>
-            </div>
+            <Link href="/profie/123">
+              <div className="mt-3 flex items-center gap-2">
+                <Image
+                  src={post.user.avatar}
+                  alt={post.user.name}
+                  width={24}
+                  height={24}
+                  className="w-6 h-6 rounded-full object-cover"
+                />
+                <p className="text-xs font-medium text-muted-foreground truncate">
+                  {post.user.name} ·{" "}
+                  {formatDistanceToNow(new Date(post.postedAt), {
+                    addSuffix: true,
+                  })}
+                </p>
+              </div>
+            </Link>
           </div>
         </Card>
       ))}

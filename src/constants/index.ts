@@ -108,6 +108,12 @@ export const samplePost = {
     <blockquote>“Win the morning, win the day.”</blockquote>
     <p>Start small. Wake up 15 minutes earlier tomorrow and build from there.</p>
   `,
+  postedAt: "2025-07-14T08:15:00Z",
+  user: {
+    id: "user-01",
+    name: "Alice Johnson",
+    avatar: "https://picsum.photos/200",
+  },
   stats: {
     likes: 128,
     comments: 24,

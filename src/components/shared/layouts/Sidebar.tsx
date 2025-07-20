@@ -89,34 +89,35 @@ const Sidebar = () => {
         <div className="mb-4">
           <Separator />
         </div>
-        <div className="flex items-center gap-2 cursor-pointer">
-          <TooltipProvider disableHoverableContent>
-            <Tooltip delayDuration={100}>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="relative h-11 w-11 rounded-full"
-                >
-                  <Avatar className="h-8 w-8">
-                    <AvatarImage src="#" alt="Avatar" />
-                    <AvatarFallback className="bg-transparent text-indigo-700 dark:text-indigo-500 font-medium">
-                      {name
-                        ?.split(" ")
-                        .map((w) => w[0])
-                        .join("")}
-                    </AvatarFallback>
-                  </Avatar>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom">Profile</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <div className="flex flex-col">
-            <h1 className="font-medium">{name}</h1>
-            <h1 className="text-sm font-light">{userName}</h1>
+        <Link href="/profile/123">
+          <div className="flex items-center gap-2 cursor-pointer">
+            <TooltipProvider disableHoverableContent>
+              <Tooltip delayDuration={100}>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="relative h-11 w-11 rounded-full"
+                  >
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src="#" alt="Avatar" />
+                      <AvatarFallback className="bg-transparent text-indigo-700 dark:text-indigo-500 font-medium">
+                        {name
+                          ?.split(" ")
+                          .map((w) => w[0])
+                          .join("")}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom">Profile</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            <div className="flex flex-col">
+              <h1 className="font-medium">{name}</h1>
+              <h1 className="text-sm font-light">{userName}</h1>
+            </div>
           </div>
-        </div>
-
+        </Link>
         <div className="mt-6">
           <button className="py-2 w-full text-sm text-red-600 dark:text-red-700 hover:text-white dark:hover:text-white bg-transparent hover:bg-red-700 font-medium flex justify-center items-center gap-2 transition-all duration-500 border-[1px] border-red-600 dark:border-red-700 rounded-[30px] cursor-pointer">
             <LogOut size="16" /> Sign Out

@@ -27,6 +27,12 @@ export interface SinglePostProps {
     thumbnail: string;
     coverImage: string;
     content: string;
+    postedAt: string | Date;
+    user: {
+      id: string;
+      name: string;
+      avatar: string;
+    };
     stats: {
       likes: number;
       comments: number;

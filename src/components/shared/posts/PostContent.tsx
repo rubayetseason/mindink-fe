@@ -1,7 +1,10 @@
+import { formatDistanceToNow } from "date-fns";
 import GoBackButton from "../others/GoBackButton";
 import { samplePost } from "@/constants";
-import { Heart, MessageCircle, Repeat } from "lucide-react";
+import { Heart, MessageCircle, Repeat, UserRoundCheck } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const PostContent = ({ postId }: { postId: string }) => {
   console.log(postId);
@@ -11,6 +14,35 @@ const PostContent = ({ postId }: { postId: string }) => {
       {/* Title */}
       <GoBackButton></GoBackButton>
       <h1 className="text-5xl font-bold tracking-tight">{samplePost.title}</h1>
+
+      <div className="mt-9 flex items-center gap-4">
+        <Link href="/profie/123">
+          <Image
+            src={samplePost.user.avatar}
+            alt={samplePost.user.name}
+            width={40}
+            height={40}
+            className="rounded-full object-cover"
+          />
+        </Link>
+        <div className="flex-1 flex justify-between items-center">
+          <Link href="/profie/123">
+            <div>
+              <p className="font-medium">{samplePost.user.name}</p>
+              <p className="text-sm text-muted-foreground">
+                {formatDistanceToNow(new Date(samplePost.postedAt), {
+                  addSuffix: true,
+                })}
+              </p>
+            </div>
+          </Link>
+          <Link href={`/posts/${postId}/`}>
+            <Button>
+              <UserRoundCheck /> Following
+            </Button>
+          </Link>
+        </div>
+      </div>
 
       {samplePost.stats.hashtags.length > 0 && (
         <div className="flex flex-wrap gap-2">

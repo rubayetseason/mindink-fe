@@ -66,22 +66,26 @@ export function BlogPostCard({
             <p className="mt-5 text-muted-foreground">{shortDescription}</p>
 
             <div className="mt-9 flex items-center gap-4">
-              <Image
-                src={user.avatar}
-                alt={user.name}
-                width={40}
-                height={40}
-                className="rounded-full object-cover"
-              />
+              <Link href="/profie/123">
+                <Image
+                  src={user.avatar}
+                  alt={user.name}
+                  width={40}
+                  height={40}
+                  className="rounded-full object-cover"
+                />
+              </Link>
               <div className="flex-1 flex justify-between items-center">
-                <div>
-                  <p className="font-medium">{user.name}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {formatDistanceToNow(new Date(postedAt), {
-                      addSuffix: true,
-                    })}
-                  </p>
-                </div>
+                <Link href="/profie/123">
+                  <div>
+                    <p className="font-medium">{user.name}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {formatDistanceToNow(new Date(postedAt), {
+                        addSuffix: true,
+                      })}
+                    </p>
+                  </div>
+                </Link>
                 <div>
                   {myposts ? (
                     <Link href={`/posts/${postId}/edit`}>
