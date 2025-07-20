@@ -1,5 +1,7 @@
 import GoBackButton from "@/components/shared/others/GoBackButton";
 import { type Metadata } from "next";
+import UserInformation from "./_components/UserInformation";
+import UserPosts from "./_components/UserPosts";
 
 export const metadata: Metadata = {
   title: "User Profile",
@@ -18,10 +20,16 @@ const ProfilePage = async ({ params, searchParams }: Props) => {
   console.log(profileId, search);
 
   return (
-    <div>
-      <div className="px-5 py-5 font-raleway flex items-center gap-4 border-b border-input">
-        <GoBackButton></GoBackButton> John Doe
+    <div className="font-raleway">
+      <div className="px-5 py-5 flex items-center gap-4 border-b border-input">
+        <GoBackButton></GoBackButton>
+        <span className="flex flex-col items-start">
+          <span className="text-xl font-semibold">John Doe</span>
+          <span className="text-sm">36 Posts</span>
+        </span>
       </div>
+      <UserInformation></UserInformation>
+      <UserPosts></UserPosts>
     </div>
   );
 };
