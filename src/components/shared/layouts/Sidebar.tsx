@@ -9,7 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { menuItems } from "@/constants/menuList";
+import { generateMobileMenuList } from "@/constants/menuList";
 import { Loader, LogOut, Moon, Sparkles, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -26,6 +26,8 @@ const Sidebar = () => {
   const [mounted, setMounted] = useState(false);
 
   const location = usePathname();
+  const userId = "123";
+  const menuItems = generateMobileMenuList(userId);
 
   // Avoid hydration mismatch
   useEffect(() => {

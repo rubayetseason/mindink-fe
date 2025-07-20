@@ -7,7 +7,7 @@ import {
   User,
 } from "lucide-react";
 
-export const menuItems = [
+export const generateMobileMenuList = (userId: string) => [
   {
     name: "Home",
     href: "/feed",
@@ -30,7 +30,7 @@ export const menuItems = [
   },
   {
     name: "Profile",
-    href: "/profile",
+    href: `/profile/${userId}`,
     icon: User,
   },
   {

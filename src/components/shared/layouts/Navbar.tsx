@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { menuItems } from "@/constants/menuList";
+import { generateMobileMenuList } from "@/constants/menuList";
 import { LogOut, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -19,6 +19,8 @@ const Navbar = () => {
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const location = usePathname();
+  const userId = "123";
+  const menuItems = generateMobileMenuList(userId);
 
   // Avoid hydration mismatch
   useEffect(() => {
